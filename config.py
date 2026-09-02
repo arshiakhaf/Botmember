@@ -7,6 +7,16 @@ load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
 
+# حالت وب‌هوک (برای هاست‌های رایگان مثل Render/Koyeb)
+# اگر خالی باشد، ربات با polling اجرا می‌شود (مناسب اجرای محلی).
+# در Render مقدار RENDER_EXTERNAL_URL به صورت خودکار استفاده می‌شود.
+WEBHOOK_URL = (
+    os.getenv("WEBHOOK_URL", "").strip()
+    or os.getenv("RENDER_EXTERNAL_URL", "").strip()
+)
+WEBHOOK_PATH = os.getenv("WEBHOOK_PATH", "/webhook").strip()
+PORT = int(os.getenv("PORT", "8080") or 8080)
+
 # اطلاعات کارت برای واریز
 CARD_NUMBER = os.getenv("CARD_NUMBER", "6037-9970-1234-5678").strip()
 CARD_HOLDER = os.getenv("CARD_HOLDER", "نام صاحب کارت").strip()

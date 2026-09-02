@@ -1,0 +1,23 @@
+# Render Blueprint — با اتصال مخزن GitHub به Render، یک‌کلیک دیپلوی می‌شود.
+# مقدارهای env در داشبورد Render وارد می‌شوند (sync: false = از شما پرسیده می‌شود).
+services:
+  - type: web
+    name: botmember-shop
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: CARD_NUMBER
+        sync: false
+      - key: CARD_HOLDER
+        sync: false
+      - key: SUPPORT
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
