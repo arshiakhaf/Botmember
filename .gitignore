@@ -1,0 +1,13 @@
+# اسرار و اطلاعات حساس
+.env
+*.session
+*.session-journal
+
+# داده‌های محلی
+data/
+
+# پایتون
+__pycache__/
+*.pyc
+.venv/
+venv/
